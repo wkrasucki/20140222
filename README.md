@@ -9,9 +9,9 @@ Zaczynamy od *Hello world*(to to wymyślił?).
  printf("Hello world");
  return 0;
  }
-```c
+```
  
 
 
-Pratycznie ady jezyk programowania ma tai program zob. [Hello world program](1).
-(1):(http://www.wp.pl)
+Pratycznie kazdy jezyk programowania ma taki program zob [Hello world program][1].
+[1]:http://www.wp.pl
