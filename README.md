@@ -2,4 +2,10 @@
 
 Zaczynamy od *Hello world*
 
-technologie internetowe pspi
+```c
+#include stdio.h
+
+ int main() {
+ printf("Hello world");
+ return 0;
+ }
