@@ -1,6 +1,6 @@
 ## Pierwsze programy w C
 
-Zaczynamy od *Hello world*
+Zaczynamy od *Hello world*(to to wymyślił?).
 
 ```c
 #include stdio.h
