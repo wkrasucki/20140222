@@ -16,6 +16,7 @@ Zaczynamy od *Hello world*(to to wymyślił?).
 Pratycznie kazdy jezyk programowania ma taki program zob [Hello world program][1].
 [1]:http://www.wp.pl
 
+```c
 # include<stdio.h>
 # include <math.h>
  
@@ -42,3 +43,4 @@ return x;
  	x=miejsceZerowe(sin, 5, 1, 1e-7);
  	if (x!=x) printf("Nieprawidłowe dane.");
  	printf("%lf", x);
+```
