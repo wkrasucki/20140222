@@ -40,7 +40,7 @@ return x;
  int main(){
  	
  	double x; 
- 	x=miejsceZerowe(sin, 5, 1, 1e-7);
+ 	x=miejsceZerowe(sin, 1, 5, 1e-7);
  	if (x!=x) printf("Nieprawidłowe dane.");
  	printf("%lf", x);
 ```
