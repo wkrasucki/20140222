@@ -13,7 +13,7 @@ Zaczynamy od *Hello world*(to to wymyślił?).
  
 
 
-Pratycznie kazdy jezyk programowania ma taki program zob [Hello world program][1].
+Pratycznie kazdy jezyk programowania ma taki program zob "Miejsce zerowe" (below).
 [1]:http://www.wp.pl
 
 ```c
