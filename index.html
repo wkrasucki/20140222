@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="20140222 : technologie internetowe pspi" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>20140222</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/wkrasucki/20140222">View on GitHub</a>
+
+          <h1 id="project_title">20140222</h1>
+          <h2 id="project_tagline">technologie internetowe pspi</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/wkrasucki/20140222/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/wkrasucki/20140222/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a name="pierwsze-programy-w-c" class="anchor" href="#pierwsze-programy-w-c"><span class="octicon octicon-link"></span></a>Pierwsze programy w C</h2>
+
+<p>Zaczynamy od <em>Hello world</em>(to to wymyślił?).</p>
+
+<div class="highlight highlight-c"><pre><span class="cp">#include stdio.h</span>
+
+ <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+ <span class="n">printf</span><span class="p">(</span><span class="s">"Hello world"</span><span class="p">);</span>
+ <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+ <span class="p">}</span>
+</pre></div>
+
+<p>Pratycznie kazdy jezyk programowania ma taki program zob "Miejsce zerowe" (below).</p>
+
+<div class="highlight highlight-c"><pre><span class="cp"># include&lt;stdio.h&gt;</span>
+<span class="cp"># include &lt;math.h&gt;</span>
+
+ <span class="kt">double</span> <span class="nf">miejsceZerowe</span><span class="p">(</span><span class="kt">double</span> <span class="p">(</span><span class="o">*</span><span class="n">funkcja</span><span class="p">)(</span><span class="kt">double</span><span class="p">),</span> <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">,</span> <span class="kt">double</span> <span class="n">epsilon</span><span class="p">){</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">&gt;=</span><span class="n">b</span><span class="p">)</span> <span class="k">return</span> <span class="n">NAN</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">ya</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+
+ <span class="n">ya</span><span class="o">=</span><span class="n">funkcja</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+ <span class="n">yb</span><span class="o">=</span><span class="n">funkcja</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+ <span class="k">if</span> <span class="p">(</span><span class="n">ya</span><span class="o">*</span><span class="n">yb</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">NAN</span><span class="p">;</span>
+ <span class="k">do</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span> <span class="n">y</span><span class="o">=</span><span class="n">funkcja</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+ <span class="k">if</span> <span class="p">(</span><span class="n">y</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+ <span class="k">if</span> <span class="p">(</span><span class="n">ya</span><span class="o">*</span><span class="n">y</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">){</span> <span class="n">b</span><span class="o">=</span><span class="n">x</span><span class="p">;</span> <span class="n">yb</span><span class="o">=</span><span class="n">y</span><span class="p">;}</span>
+ <span class="k">else</span> <span class="p">{</span><span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="p">;</span> <span class="n">ya</span><span class="o">=</span><span class="n">y</span><span class="p">;}</span>
+ <span class="p">}</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="o">&gt;</span><span class="n">epsilon</span><span class="p">);</span>
+<span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+ <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+
+    <span class="kt">double</span> <span class="n">x</span><span class="p">;</span> 
+    <span class="n">x</span><span class="o">=</span><span class="n">miejsceZerowe</span><span class="p">(</span><span class="n">sin</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">1e-7</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">!=</span><span class="n">x</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">"Nieprawidłowe dane."</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%lf"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+</pre></div>
+
+<h1>
+<a name="struktury" class="anchor" href="#struktury"><span class="octicon octicon-link"></span></a>Struktury</h1>
+
+<div class="highlight highlight-c"><pre>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#define max_studentów 15</span>
+
+<span class="k">enum</span> <span class="n">oceny</span> <span class="p">{</span> <span class="n">ndst</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dst</span> <span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">bdb</span> <span class="p">);</span>
+
+<span class="k">struct</span> <span class="n">student</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">imie</span><span class="p">[</span><span class="mi">12</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">nazwisko</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+    <span class="k">enum</span> <span class="n">oceny</span> <span class="n">ocena</span><span class="p">;</span>
+
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="n">iloscStudentow</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">student</span> <span class="n">Kowalski</span><span class="o">=</span><span class="p">{</span><span class="s">"Jan"</span><span class="p">,</span> <span class="s">"Kowalski"</span><span class="p">,</span> <span class="n">db</span> <span class="p">};</span>
+    <span class="k">struct</span> <span class="n">student</span> <span class="n">Studenci</span><span class="p">[</span><span class="n">MAX_STUDENTOW</span><span class="p">];</span>
+    <span class="kt">FILE</span> <span class="o">*</span><span class="n">plik</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="k">const</span> <span class="n">nazwaPliku</span><span class="o">=</span><span class="s">"studenci.txt"</span><span class="p">;</span>
+
+    <span class="n">Studenci</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">Kowalski</span><span class="p">;</span>
+    <span class="n">iloscStudentow</span><span class="o">++</span><span class="p">;</span>
+
+    <span class="n">strncpy</span><span class="p">(</span><span class="n">Studenci</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">imie</span><span class="p">,</span> <span class="s">"Adam"</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span>
+    <span class="n">Studenci</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">imie</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span><span class="o">=</span><span class="sc">'\0'</span><span class="p">;</span>
+    <span class="n">strncpy</span><span class="p">(</span><span class="n">Studenci</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">nazwisko</span><span class="p">,</span> <span class="s">"Wisniewski"</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+    <span class="n">Studenci</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">nazwisko</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span><span class="o">=</span><span class="sc">'\0'</span><span class="p">;</span>
+    <span class="n">Studenci</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">ocena</span><span class="o">=</span><span class="n">dst</span><span class="p">;</span>
+    <span class="n">iloscStudentow</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">Studenci</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">ocena</span><span class="o">=</span><span class="mi">444</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">((</span><span class="n">plik</span><span class="o">=</span><span class="n">fopen</span><span class="p">(</span><span class="n">nazwaPliku</span><span class="p">,</span><span class="s">"w"</span><span class="p">))</span><span class="o">==</span><span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</pre></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">20140222 maintained by <a href="https://github.com/wkrasucki">wkrasucki</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
